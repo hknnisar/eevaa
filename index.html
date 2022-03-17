@@ -3,10 +3,30 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript">
+    window.onresize = function(){ location.reload(); }
+    
+    window.onorientationchange = function() { 
+        var orientation = window.orientation; 
+            switch(orientation) { 
+                case 0:
+                case 90:
+                case -90: window.location.reload(); 
+                break; } 
+        };
+
     window.onload = function () {
-        var asp = 'images/hor/';
-        if(window.innerHeight > window.innerWidth){
+        // var asp = 'images/hor/';
+        // if(window.innerHeight > window.innerWidth){
+        //     var asp = 'images/vert/'
+        //     }
+
+        if (window.matchMedia("(orientation: portrait)").matches) {
+            // you're in PORTRAIT mode
             var asp = 'images/vert/'
+            }
+        if (window.matchMedia("(orientation: landscape)").matches) {
+            // you're in LANDSCAPE mode
+            var asp = 'images/hor/'    
             }
         var now = new Date();
         var start = new Date(now.getFullYear(), 0, 0);
