@@ -64,13 +64,111 @@ body, html {
     right:1em;
     color: aliceblue;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: xx-large;
+    font-size: 2em;
     background-color: black;
     padding: 0.5em;
     /* text-align: center; */
     border-radius: 0.15em;
+
+    animation: ripple 1s linear infinite;
+    /* animation-iteration-count: infinite; */
 }
 
+.box a{
+    color: aliceblue;
+    text-decoration: none;
+}
+.box a:hover{
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+@keyframes beat {
+    0% {padding: 0.5em;}
+    50% {padding: 0.6em; bottom: 0.9em; right:0.9em; background-color: #222;}
+    100% {padding: 0.5em;}
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0.25em 0rem rgba(34,2,0, 0.2),
+                0 0 0.25em 1rem rgba(34,2,0, 0.2);
+                /* 0 0 0 1.5rem rgba(34,2,0, 0.2), */
+                /* 0 0 0 2.4rem rgba(34,2,0, 0.2); */
+  }
+  10% {font-size: 1.99em;}
+  20% {font-size: 1.98em;}
+  30% {font-size: 1.97em;}
+  40% {font-size: 1.96em;}
+  50% {padding: 0.45em; bottom: 1.05em; right:1.05em; background-color: #222; font-size:1.95em;}
+  60% {font-size: 1.96em;}
+  70% {font-size: 1.97em;}
+  80% {font-size: 1.98em;}
+  90% {font-size: 1.99em;}
+  100% {
+    box-shadow: 0 0 0.25em 1rem rgba(34,2,0, 0.2),
+                0 0 0.25em 2rem rgba(34,2,0, 0);
+                /* 0 0 0 2.4rem rgba(34,2,0, 0.2), */
+                /* 0 0 0 3.4rem rgba(34,2,0, 0); */
+  }
+}
+
+.overlay {
+    /* background: rgba(0, 0, 0, 0.7); */
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 25%;
+    transform: translate(-50%,-50%);
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2em;
+    background-color: black;
+    padding: 3em;
+    /* text-align: center; */
+    border-radius: 0.25em;
+    box-shadow: 0 0 5em rgba(34,2,0,0.9);
+    transition: all 5s ease-in-out;
+}
+
+.info a{
+    color:aliceblue;
+    }
+
+.info .close {
+    position: absolute;
+    top: 0.5em;
+    right: 0.75em;
+    transition: all 200ms;
+    font-size: 2em;
+    font-weight:normal;
+    text-decoration: none;
+}
+
+.info .close:hover{
+    font-weight: bold;
+}
+.info p{
+    font-size: 0.9em;
+}
+
+@media screen and (orientation: portrait)  {
+    .info {
+            width: 50%;
+        }
+
+}
 </style>
 <link rel="icon" href="./images/icon.png" type="image/icon type">
 <meta name="description" content="Eevaa dog's one photo a day">
@@ -81,7 +179,23 @@ body, html {
 
 <div class="bg">
     <div class="box">
-        Eevaa.🐶
+        <a href="#overlay">Eevaa.🐶</a>
+    </div>
+    <div class="overlay" id="overlay">
+        <div class="info">
+            <h3>Hey! I'm Eevaa 🐶 <a class="close" href="#">&times;</a></h3>
+            <p>
+            I am an Indie-mixed breed. <br>I was born in March 2021. <br>
+            My last rabies shot was given on August 12, 2022.
+            <i>I am not <a href="https://en.wikipedia.org/wiki/Neutering">neutered</a></i>
+            </p>
+
+            If I am found alone, please return me to my parents. 
+            📞 <a href="tel:9969725005">9969725005</a> <br>
+            <!-- BMC License No.: 792148943  -->
+            
+
+        </div>
     </div>
 </div>
 
