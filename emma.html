@@ -10,7 +10,8 @@
 <style>
 	body {
 		font-family: "Merriweather", sans-serif;
-		
+		background-color: white;
+        color: black;
 		margin: 0;
 		}
 	div {
@@ -35,6 +36,15 @@
 		width: 100%;
         content: url("./images/emma_wide.jpg");
     }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: black;
+            color:gainsboro;
+        }
+    }
+
+
 	@media only screen and (orientation: portrait){
 	.main{
 		width: 90%;
