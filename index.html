@@ -43,6 +43,43 @@
         document.getElementsByTagName('body')[0].style.backgroundHeight = "100%";
         document.getElementsByTagName('body')[0].style.backgroundPosition = "center";
     }
+
+    function set_day(day) {
+        if (window.matchMedia("(orientation: portrait)").matches) {
+            // you're in PORTRAIT mode
+            var asp = 'images/vert/'
+            }
+        if (window.matchMedia("(orientation: landscape)").matches) {
+            // you're in LANDSCAPE mode
+            var asp = 'images/hor/'    
+            }
+        var images = ['1.jpeg','2.jpeg','3.jpeg','4.jpeg','5.jpeg','6.jpeg','7.jpeg','8.jpeg','9.jpeg','10.jpeg','11.jpeg','12.jpeg','13.jpeg','14.jpeg','15.jpeg','16.jpeg','17.jpeg','18.jpeg','19.jpeg','20.jpeg','21.jpeg','22.jpeg','23.jpeg','24.jpeg','25.jpeg','26.jpeg','27.jpeg','28.jpeg','29.jpeg','30.jpeg','31.jpeg','32.jpeg','33.jpeg','34.jpeg','35.jpeg','36.jpeg','37.jpeg','38.jpeg','39.jpeg','40.jpeg','41.jpeg','42.jpeg','43.jpeg','44.jpeg','45.jpeg','46.jpeg','47.jpeg','48.jpeg','49.jpeg','50.jpeg','51.jpeg','52.jpeg','53.jpeg','54.jpeg','55.jpeg','56.jpeg','57.jpeg','58.jpeg','59.jpeg','60.jpeg','61.jpeg','62.jpeg','63.jpeg','64.jpeg','65.jpeg','66.jpeg','67.jpeg','68.jpeg','69.jpeg','70.jpeg','71.jpeg','72.jpeg','73.jpeg','74.jpeg','75.jpeg','76.jpeg','77.jpeg','78.jpeg','79.jpeg'];
+        var image = asp.concat(images[day]);
+        document.getElementsByTagName('body')[0].style.backgroundImage = "url('" + image + "')";
+        document.getElementsByTagName('body')[0].style.backgroundRepeat = "no-repeat";
+        document.getElementsByTagName('body')[0].style.backgroundSize = "cover";
+        document.getElementsByTagName('body')[0].style.backgroundHeight = "100%";
+        document.getElementsByTagName('body')[0].style.backgroundPosition = "center";
+    }
+    function next_image() {
+        var day = document.getElementsByTagName('body')[0].style.backgroundImage;
+        day = Number(day.split('/')[2].split('.')[0]);
+        // document.getElementById("demo").innerHTML = day;
+        // var init_day = get_day()
+        // var day = day-1;
+        if (day >79 ) { day =79;}
+        set_day(day);
+        }
+    function prev_image() {
+        var day = document.getElementsByTagName('body')[0].style.backgroundImage;
+        day = Number(day.split('/')[2].split('.')[0]);
+        // document.getElementById("demo").innerHTML = day;
+        // var init_day = get_day()
+        var day = day-2;
+        if (day < 0) { day =0;}
+        set_day(day);
+        }
+
 </script>
 <style>
 body, html {
@@ -61,7 +98,10 @@ body, html {
 .box {
     position:absolute;
     bottom:1em;
-    right:1em;
+    width: 3.5em;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 0);
     color: aliceblue;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2em;
@@ -71,7 +111,7 @@ body, html {
     border-radius: 0.15em;
 
     animation: ripple 1s linear infinite;
-    /* animation-iteration-count: infinite; */
+    
 }
 
 .box a{
@@ -96,15 +136,16 @@ body, html {
                 /* 0 0 0 1.5rem rgba(34,34,34, 0.2), */
                 /* 0 0 0 2.4rem rgba(34,34,34, 0.2); */
   }
-  10% {font-size: 1.99em;}
+  /* 10% {font-size: 1.99em;}
   20% {font-size: 1.98em;}
   30% {font-size: 1.97em;}
-  40% {font-size: 1.96em;}
-  50% {padding: 0.45em; bottom: 1.05em; right:1.05em; background-color: #222; font-size:1.95em;}
-  60% {font-size: 1.96em;}
+  40% {font-size: 1.96em;} */
+  /* 50% {padding: 0.45em; bottom: 1.05em; right:1.05em; background-color: #222; font-size:1.95em;} */
+  50% {padding: 0.45em; bottom: 1.05em; right:1.05em; background-color: #111;}
+  /* 60% {font-size: 1.96em;}
   70% {font-size: 1.97em;}
   80% {font-size: 1.98em;}
-  90% {font-size: 1.99em;}
+  90% {font-size: 1.99em;} */
   100% {
     box-shadow: 0 0 0.25em 1rem rgba(34,34,34, 0.2),
                 0 0 0.25em 2rem rgba(34,34,34, 0);
@@ -164,6 +205,29 @@ body, html {
     font-size: 0.9em;
 }
 
+.buttons {
+    width: 100%;
+    height: 100%;
+}
+.prev_bt {
+    width: 25%;
+    height: 100%;
+    float: right;
+    background: transparent;
+    border: none;
+    font-size:0;
+}
+
+.next_bt {
+    width: 25%;
+    height: 100%;
+    float-align: right;
+    background: transparent;
+    border: none;
+    font-size:0;
+
+}
+
 @media screen and (orientation: portrait)  {
     .info {
             width: 50%;
@@ -177,7 +241,11 @@ body, html {
 <meta property="og:image" content="https://eevaa.dog/images/ogimage.png"/>
 </head>
 <body>
-
+<div class="buttons">
+    <button onclick="prev_image()" class="prev_bt">[</button>
+    <button onclick="next_image()" class="next_bt">]</button>
+</div>
+<!-- <p id="demo"></p> -->
 <div class="bg">
     <div class="box">
         <a href="#overlay">Eevaa.🐶</a>
@@ -202,7 +270,7 @@ body, html {
     </div>
 </div>
 
-<!-- <p>This example creates a full page background image. Try to resize the browser window to see how it always will cover the full screen (when scrolled to top), and that it scales nicely on all screen sizes.</p> -->
+<!--  -->
 
 </body>
 </html>
