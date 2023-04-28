@@ -79,6 +79,12 @@
         if (day < 0) { day =0;}
         set_day(day);
         }
+        document.onkeydown = function checkKey(e) {
+        e = e || window.event;
+        if (e.keyCode == '37') {prev_image()}
+        else if (e.keyCode == '39') {next_image()}
+        }
+
 
 </script>
 <style>
@@ -131,8 +137,8 @@ body, html {
 
 @keyframes ripple {
   0% {
-    box-shadow: 0 0 0.25em 0rem rgba(34,34,34, 0.2),
-                0 0 0.25em 1rem rgba(34,34,34, 0.2);
+    /* box-shadow: 0 0 0.25em 0rem rgba(34,34,34, 0.2), */
+                /* 0 0 0.25em 1rem rgba(34,34,34, 0.2); */
                 /* 0 0 0 1.5rem rgba(34,34,34, 0.2), */
                 /* 0 0 0 2.4rem rgba(34,34,34, 0.2); */
   }
@@ -141,14 +147,14 @@ body, html {
   30% {font-size: 1.97em;}
   40% {font-size: 1.96em;} */
   /* 50% {padding: 0.45em; bottom: 1.05em; right:1.05em; background-color: #222; font-size:1.95em;} */
-  50% { background-color: #111;}
+  50% { background-color: #222;}
   /* 60% {font-size: 1.96em;}
   70% {font-size: 1.97em;}
   80% {font-size: 1.98em;}
   90% {font-size: 1.99em;} */
   100% {
-    box-shadow: 0 0 0.25em 1rem rgba(34,34,34, 0.2),
-                0 0 0.25em 2rem rgba(34,34,34, 0);
+    /* box-shadow: 0 0 0.25em 1rem rgba(34,34,34, 0.2), */
+                /* 0 0 0.25em 2rem rgba(34,34,34, 0); */
                 /* 0 0 0 2.4rem rgba(34,34,34, 0.2), */
                 /* 0 0 0 3.4rem rgba(34,34,34, 0); */
   }
@@ -212,7 +218,7 @@ body, html {
 .prev_bt {
     width: 25%;
     height: 100%;
-    float: right;
+    float: left;
     background: transparent;
     border: none;
     font-size:0;
@@ -221,7 +227,7 @@ body, html {
 .next_bt {
     width: 25%;
     height: 100%;
-    float-align: right;
+    float: right;
     background: transparent;
     border: none;
     font-size:0;
@@ -257,12 +263,12 @@ body, html {
             <p>
             I am an Indie-mixed breed. <br>I was born in March 2021. <br>
             My last rabies shot was given on August 12, 2022.
-            <i>I am <a href="https://en.wikipedia.org/wiki/Neutering">neutered</a></i>
+            <i>I am <a href="https://en.wikipedia.org/wiki/Neutering">neutered</a></i>.
             </p>
 
-            If I am found alone, please return me to my parents. <br>
-            📞 <a href="tel:9969725005">9969725005</a> <br>
-            <p>© 2021—2023 All Rights Reserved</p>
+            <p>If I am found alone, please return me to my parents. <br>
+            📞 <a href="tel:9969725005">9969725005</a> </p>
+            <p class="ARR">© 2021—2023 All Rights Reserved</p>
             <!-- BMC License No.: 792148943  -->
             
 
